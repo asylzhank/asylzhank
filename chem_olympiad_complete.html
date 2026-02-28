@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Olympiad Study Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .timer { font-size: 24px; margin-bottom: 20px; }
+        .goal-tracking { margin: 20px 0; }
+        .problem-database { margin: 20px 0; }
+        .study-title { font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Chemistry Olympiad Study Platform</h1>
+    <div class="timer">
+        <h2>Pomodoro Timer</h2>
+        <p id="countdown">25:00</p>
+        <button onclick="startTimer()">Start</button>
+    </div>
+    <div class="national-exams">
+        <h2>National Exam Topics</h2>
+        <ul>
+            <li>General Chemistry</li>
+            <li>Organic Chemistry</li>
+            <li>Inorganic Chemistry</li>
+            <li>Physical Chemistry</li>
+            <li>Analytical Chemistry</li>
+        </ul>
+    </div>
+    <div class="study-features">
+        <h2>Study Features</h2>
+        <p>Track your study goals, solve problems with solutions, and engage in spaced repetition.</p>
+    </div>
+    <div class="goal-tracking">
+        <h2>Goal Tracking</h2>
+        <p>Set your study goals and track your progress here.</p>
+    </div>
+    <div class="problem-database">
+        <h2>Problem Database</h2>
+        <div class="study-title">Example Problem:</div>
+        <p>Solve: \( H_2 + Cl_2 \rightarrow 2HCl \)</p>
+        <p>Solution: Use stoichiometry to find the required amounts.</p>
+    </div>
+    <script>
+        let timer;
+        let timeLeft = 25 * 60;
+        function startTimer() {
+            timer = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert('Time is up!');
+                } else {
+                    timeLeft--;
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
+                    document.getElementById('countdown').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
